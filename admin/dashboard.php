@@ -1,5 +1,5 @@
 <?php
-require('./database/dbconnection.inc.php');
+require('../database/dbconnection.inc.php');
 session_start();
 if(isset($_SESSION['isAdmin']))
 {
@@ -10,14 +10,16 @@ else{
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+<?php
+include('includes/header.inc.php');
+?>
 </head>
 <body>
-    This is admin dashboard.
-</body>
-</html>
+
+<?php
+include('includes/navbar.inc.php');
+?>
+
+<?php
+include('includes/footer.inc.php')
+?>
