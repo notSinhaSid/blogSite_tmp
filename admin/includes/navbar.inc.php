@@ -17,10 +17,10 @@
             Review
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Web Dev Zone</a></li>
-            <li><a class="dropdown-item" href="#">DevOps Zone</a></li>
-            <li><a class="dropdown-item" href="#">AI-ML Zone</a></li>
-            <li><a class="dropdown-item" href="#">Android Zone</a></li>
+            <li><a class="dropdown-item" href="./webdevshow.inc.php">Web Dev Zone</a></li>
+            <li><a class="dropdown-item" href="./devops.inc.php">DevOps Zone</a></li>
+            <li><a class="dropdown-item" href="./aiml.inc.php">AI-ML Zone</a></li>
+            <li><a class="dropdown-item" href="./android.inc.php">Android Zone</a></li>
           </ul>
         </li>
       </ul>
