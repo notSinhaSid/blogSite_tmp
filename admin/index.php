@@ -7,8 +7,7 @@
     include('./includes/header.inc.php');
 ?>
 <link rel="stylesheet" href="../admin/assets/css/index.css">
-</head>
-<body>
+
 <div id="login">
   <form action="" method="POST">
     <h1>Sign In</h1>
