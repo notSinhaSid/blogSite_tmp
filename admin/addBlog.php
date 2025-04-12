@@ -1,5 +1,14 @@
 <?php
 include('../database/dbconnection.inc.php');
+session_start();
+if(isset($_SESSION['isAdmin']))
+{
+    $adminEmail = $_SESSION['adminEmail'];
+}
+else
+{
+    header('Location: ./index.php');
+}
 ?>
 
 <?php
@@ -19,5 +28,5 @@ include('./includes/navbar.inc.php');
 
 <?php
 require('./includes/blogAdd.inc.php');
-include('./includes/footer.inc.php');
+require('./includes/footer.inc.php');
 ?>

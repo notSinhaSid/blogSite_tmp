@@ -6,7 +6,7 @@ if(isset($_SESSION['isAdmin']))
     $adminEmail = $_SESSION['adminEmail'];
 }
 else{
-    header('Location: index.php');
+    header('Location: ./index.php');
 }
 ?>
 

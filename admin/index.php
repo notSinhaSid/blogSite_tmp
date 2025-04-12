@@ -14,7 +14,6 @@
     <input type="email" placeholder="admin email" name="adminEmail">
     <input type="password" placeholder="Password" name="adminPass">
     <button type="submit" name="signin">Sign in</button>
-    <?php if(isset($singin_err)){echo $singin_err;}?>
   </form>
 </div>
   

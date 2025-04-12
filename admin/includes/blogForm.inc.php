@@ -1,4 +1,4 @@
-<form action="" method="post" class=" form-group mt-3" enctype="multipart/form-data">
+<form action="./includes/blogAdd.inc.php" method="post" class=" form-group mt-3" enctype="multipart/form-data">
     <div class="mb-3">
         <label for="AuthorName" class="form-label">Author's Name</label>
         <input type="text" name="authName" class="form-control">
@@ -7,10 +7,10 @@
         <label for="BlogCategory" class="form-label">Blog Category</label>
         <select name="blogCat" id="" class="form-select">
             <option value="disabled">Select a Category</option>
-            <option value="1">WebDev</option>
-            <option value="2">DevOps</option>
-            <option value="3">aiml</option>
-            <option value="4">android</option>
+            <option value="1" name="WebDev">WebDev</option>
+            <option value="2" name="DevOps">DevOps</option>
+            <option value="3" name="AIML">AIML</option>
+            <option value="4" name="Android">Android</option>
         </select>
     </div>
     <div class="mb-3">
