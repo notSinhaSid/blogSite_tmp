@@ -8,6 +8,7 @@ if(isset($_SESSION['isAdmin']))
 else
 {
     header('Location: ./index.php');
+    exit();
 }
 ?>
 
@@ -20,6 +21,7 @@ include('./includes/navbar.inc.php');
         <div class="col-lg-8 offset-lg-2">
         <h3 class="text-center">Create new blog!</h3>
         <?php
+        $row=[];
             if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['edit']))
             {
                 $sql ="SELECT * FROM blogpost_tb WHERE blogId = :blogId";
@@ -38,5 +40,6 @@ include('./includes/navbar.inc.php');
 </div>
 <?php
 require('./includes/blogAdd.inc.php');
+
 require('./includes/footer.inc.php');
 ?>

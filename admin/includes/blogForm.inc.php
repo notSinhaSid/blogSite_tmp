@@ -28,7 +28,7 @@
     </div>
     <div class="mb-3">
         <button type="submit" class="btn btn-md btn-outline-success offset-lg-4" name="add">Create</button>
-
-        <button type="submit" class="btn btn-md btn-outline-secondary offset-lg-1" name="update">Update</button>
+        <input type="text" name="blogId" vlaue="<?php if(isset($row['blogId'])){echo $row['blogId'];}?>">
+        <button type="submit" class="btn btn-md btn-outline-secondary offset-lg-1" name="updatewebdev">Update</button>
     </div>
 </form>
