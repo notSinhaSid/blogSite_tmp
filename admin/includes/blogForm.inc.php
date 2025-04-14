@@ -1,3 +1,16 @@
+<?php
+if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['edit']))
+{
+    $sql ="SELECT * FROM blogpost_tb WHERE blogId = :blogId";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':blogId', $blogId, PDO::PARAM_INT);
+    $blogId = $_POST['blogId'];
+    $stmt->execute();
+    $row=$stmt->fetch(PDO::FETCH_ASSOC);
+    // print_r($row);
+
+}
+?>
 <form action="./includes/blogAdd.inc.php" method="post" class=" form-group mt-3" enctype="multipart/form-data">
     <div class="mb-3">
         <label for="AuthorName" class="form-label">Author's Name</label>
@@ -28,7 +41,7 @@
     </div>
     <div class="mb-3">
         <button type="submit" class="btn btn-md btn-outline-success offset-lg-4" name="add">Create</button>
-        <input type="text" name="blogId" vlaue="<?php if(isset($row['blogId'])){echo $row['blogId'];}?>">
+        <input type="text" name="blogId" value="<?php if(isset($blogId)){echo $blogId;}?>">
         <button type="submit" class="btn btn-md btn-outline-secondary offset-lg-1" name="updatewebdev">Update</button>
     </div>
 </form>
