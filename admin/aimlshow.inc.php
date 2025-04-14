@@ -14,12 +14,5 @@ else
 <?php include('./includes/header.inc.php');
 include('./includes/navbar.inc.php');
 ?>
-<div class="container">
-    <div class="row">
-        <div class="col-lg">
-            <h3>This is for content</h3>
-            <?php include('includes/webdevblog.inc.php');?>
-        </div>
-    </div>
-</div>
+<h3>This is page to display the AIML blogs and news</h3>
 <?php include('./includes/footer.inc.php');?>

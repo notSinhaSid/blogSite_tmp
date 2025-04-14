@@ -1,7 +1,7 @@
 <form action="./includes/blogAdd.inc.php" method="post" class=" form-group mt-3" enctype="multipart/form-data">
     <div class="mb-3">
         <label for="AuthorName" class="form-label">Author's Name</label>
-        <input type="text" name="authName" class="form-control">
+        <input type="text" name="authName" class="form-control" value="<?php if(isset($row['authName'])){echo $row['authName'];}?>">
     </div>
     <div class="mb-3">
         <label for="BlogCategory" class="form-label">Blog Category</label>
@@ -15,7 +15,7 @@
     </div>
     <div class="mb-3">
         <label for="BlogTitle" class="form-label">Blog Title</label>
-        <input type="text" name="blogTitle" class="form-control">
+        <input type="text" name="blogTitle" class="form-control" value="<?php if(isset($row['blogTitle'])){echo $row['blogTitle'];}?>">
     </div>
     <div class="mb-3">
         <label for="blogImg" class="form-label">Blog Post image</label>
@@ -23,9 +23,11 @@
     </div>
     <div class="mb-3">
         <label for="BlogContent" class="form-label">Blog Content</label>
-        <textarea type="text" rows="10" cols="50" name="blogContent" class="form-control"></textarea>
+        <textarea type="text" rows="10" cols="50" name="blogContent" class="form-control"><?php if(isset($row['blogContent'])){echo $row['blogContent'];}?></textarea>
     </div>
     <div class="mb-3">
-        <button type="submit" class="btn btn-md btn-outline-success offset-lg-5" name="add">Create</button>
+        <button type="submit" class="btn btn-md btn-outline-success offset-lg-4" name="add">Create</button>
+
+        <button type="submit" class="btn btn-md btn-outline-secondary offset-lg-1" name="update">Update</button>
     </div>
 </form>
