@@ -7,19 +7,20 @@
         <label for="BlogCategory" class="form-label">Blog Category</label>
         <select name="blogCat" id="" class="form-select">
             <option value="disabled">Select a Category</option>
-            <option value="1" name="WebDev">WebDev</option>
-            <option value="2" name="DevOps">DevOps</option>
-            <option value="3" name="AIML">AIML</option>
-            <option value="4" name="Android">Android</option>
+            <option value="1"<?php if(isset($row['blogCat']) &&($row['blogCat']=="1")) {echo "selected";}?> name="WebDev">WebDev</option>
+            <option value="2" <?php if(isset($row['blogCat']) &&($row['blogCat']=="2")) {echo "selected";}?> name="DevOps">DevOps</option>
+            <option value="3" <?php if(isset($row['blogCat']) &&($row['blogCat']=="3")) {echo "selected";}?> name="AIML">AIML</option>
+            <option value="4" <?php if(isset($row['blogCat']) &&($row['blogCat']=="4")) {echo "selected";}?> name="Android">Android</option>
         </select>
     </div>
     <div class="mb-3">
         <label for="BlogTitle" class="form-label">Blog Title</label>
-        <input type="text" name="blogTitle" class="form-control" value="<?php if(isset($row['blogTitle'])){echo $row['blogTitle'];}?>">
+        <input type="text" name="blogTitle" class="form-control" value="<?php if(isset($row['blogTitle'])){echo htmlspecialchars($row['blogTitle']);}?>">
     </div>
     <div class="mb-3">
         <label for="blogImg" class="form-label">Blog Post image</label>
         <input class="form-control form-control-sm" id="blogImg" type="file" name="blogImg">
+        <img src="<?php if(isset($row['blogImg'])){echo "./assets/images/".$row['blogImg'];}?>" alt="" class="form-control"s style="height:150px; width:auto;">
     </div>
     <div class="mb-3">
         <label for="BlogContent" class="form-label">Blog Content</label>

@@ -17,7 +17,7 @@ include('./includes/navbar.inc.php');
 ?>
 <div class="container mt-5">
     <div class="row">
-        <div class="col-lg-6 offset-lg-3">
+        <div class="col-lg-8 offset-lg-2">
         <h3 class="text-center">Create new blog!</h3>
         <?php
             if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['edit']))
