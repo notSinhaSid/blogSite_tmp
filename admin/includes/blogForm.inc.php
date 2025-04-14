@@ -28,7 +28,7 @@
     </div>
     <div class="mb-3">
         <button type="submit" class="btn btn-md btn-outline-success offset-lg-4" name="add">Create</button>
-        <input type="text" name="blogId" value="<?php if(isset($blogId)){echo $blogId;}?>">
+        <input type="hidden" name="blogId" value="<?php if(isset($blogId)){echo $blogId;}?>">
         <button type="submit" class="btn btn-md btn-outline-secondary offset-lg-1" name="updatewebdev">Update</button>
     </div>
 </form>
