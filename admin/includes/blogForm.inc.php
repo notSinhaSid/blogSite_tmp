@@ -1,16 +1,3 @@
-<?php
-if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['edit']))
-{
-    $sql ="SELECT * FROM blogpost_tb WHERE blogId = :blogId";
-    $stmt = $conn->prepare($sql);
-    $stmt->bindParam(':blogId', $blogId, PDO::PARAM_INT);
-    $blogId = $_POST['blogId'];
-    $stmt->execute();
-    $row=$stmt->fetch(PDO::FETCH_ASSOC);
-    // print_r($row);
-
-}
-?>
 <form action="./includes/blogAdd.inc.php" method="post" class=" form-group mt-3" enctype="multipart/form-data">
     <div class="mb-3">
         <label for="AuthorName" class="form-label">Author's Name</label>
