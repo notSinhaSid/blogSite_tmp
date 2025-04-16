@@ -7,9 +7,8 @@ include('./includes/header.inc.php');
 require('./includes/navbar.inc.php');
 ?>
 <div class="container">
-<h2>This is index.php page</h2>
+    <h1>this is the parent</h1>
 </div>
-
 <?php
 include('./includes/footer.inc.php');
 ?>

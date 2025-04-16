@@ -24,7 +24,8 @@ if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['remove']))
         $delRes = $conn->prepare($delstmt);
         $delRes->bindParam(':blogId', $blogId, PDO::PARAM_INT);
         $delRes->execute();
-        header('Location: ./dashboard.php');
+        // header('Location: ./dashboard.php');
+        echo '<script>location.href="./dashboard.php"</script>';
         exit();
     }
     catch(PDOException $e)
