@@ -1,23 +1,35 @@
 <?php
 if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['remove']))
 {
+    //get blogId before any query
     $blogId = $_POST['blogId'];
-    $sql ="SELECT * FROM blogpost_tb WHERE blogId =:blogId";
-    $result =$conn->prepare($sql);
-    $result->bindParam(':blogId', $blogId, PDO::PARAM_INT);
-    $result->execute();
-    $row = $result->fetch(PDO::FETCH_ASSOC);
-    $delImg = $row['blogImg'];
-    unlink('./assets/images/'.$delImg);
-    // $result->close();
+    try
+    {
+        $sql ="SELECT blogImg FROM blogpost_tb WHERE blogId =:blogId";
+        $result = $conn->prepare($sql);
+        $result->bindParam(':blogId', $blogId, PDO::PARAM_INT);
+        $result->execute();
+        $row=$result->fetch(PDO::FETCH_ASSOC);
 
-    $delstmt= "DELETE * FROM blogpost_tb WHERE blogId =:blogId";
-    $result= $conn->prepare($sql);
-    $result->bindParam(':blogId', $blogId, PDO::PARAM_INT);
+        if($row && !empty($row['blogImg']))
+        {
+            $delImgPath= './assets/images/'.$row['blogImg'];
+            if(file_exists($delImgPath))
+            {
+                unlink($delImgPath);
+            }
+        }
 
-    $result->execute();
-
-    header('Location: ./dashboard.php');
-    exit();
+        $delstmt = "DELETE FROM blogpost_tb WHERE blogId =:blogId";
+        $delRes = $conn->prepare($delstmt);
+        $delRes->bindParam(':blogId', $blogId, PDO::PARAM_INT);
+        $delRes->execute();
+        header('Location: ./dashboard.php');
+        exit();
+    }
+    catch(PDOException $e)
+    {
+        echo $e->getMessage();
+    }
 }
 ?>

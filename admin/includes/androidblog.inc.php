@@ -61,6 +61,12 @@ if($result->rowCount()>0)
     }
     echo '</thead>';
     echo '</table>';
+
+    unset($result);
+}
+else
+{
+    echo "No record found yet";
 }
 ?>
 
