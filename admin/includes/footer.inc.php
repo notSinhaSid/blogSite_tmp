@@ -2,3 +2,7 @@
 <!-- <script src="../admin/assets/js/index.js"></script> -->
 </body>
 </html>
+<?php
+require('./includes/blogAdd.inc.php');
+// require('./includes/deleteblog.inc.php');
+?>

@@ -7,6 +7,7 @@ if(isset($_SESSION['isAdmin']))
 }
 else{
     header('Location: ./index.php');
+    exit();
 }
 ?>
 

@@ -8,11 +8,19 @@ if(isset($_SESSION['isAdmin']))
 else
 {
     header('Location: ./index.php');
+    exit();
 }
 ?>
 
 <?php include('./includes/header.inc.php');
 include('./includes/navbar.inc.php');
 ?>
-<h3>This is page to display the Android blogs and news</h3>
+<div class="container">
+    <div class="row">
+        <div class="col-lg">
+            <h3>This is for content</h3>
+            <?php include('includes/androidblog.inc.php');?>
+        </div>
+    </div>
+</div>
 <?php include('./includes/footer.inc.php');?>

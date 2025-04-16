@@ -37,7 +37,5 @@ include('./includes/navbar.inc.php');
     </div>
 </div>
 <?php
-require('./includes/blogAdd.inc.php');
-
 require('./includes/footer.inc.php');
 ?>
