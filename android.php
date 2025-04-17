@@ -7,7 +7,11 @@ include('./includes/header.inc.php');
 require('./includes/navbar.inc.php');
 ?>
 <div class="container">
-    <h2>This is index.php page</h2>
+    <div class="row">
+    <?php
+        require('./includes/displayandroid.inc.php');
+    ?>
+    </div> 
 </div>
 <?php
 include('./includes/footer.inc.php');
