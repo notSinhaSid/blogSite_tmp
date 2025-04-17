@@ -1,6 +1,6 @@
 <?php
 $blogCat=1;
-$sql = "SELECT * FROM blogpost_tb WHERE blogCat=:blogCat ORDER BY blogTime DESC LIMIT 10";
+$sql = "SELECT * FROM blogpost_tb WHERE blogCat=:blogCat ORDER BY blogId DESC LIMIT 10";
 $result = $conn->prepare($sql);
 $result->bindParam(':blogCat', $blogCat, PDO::PARAM_INT);
 $result->execute();
@@ -8,39 +8,46 @@ $result->execute();
 if($result->rowCount()>0)
 {
     // echo "There are content in the webdev blogs";
-    while($row = $result->fetch(PDO::FETCH_ASSOC))
-    {
-        echo '<div class="col-lg-3 col-md-6">';
-        echo '<div class="card h-100">';
-        echo '<img src="./admin/assets/images/'.$row['blogImg'].'" class="img-thumbnail" alt="...">';
-        echo '<div class="card-body d-flex flex-column">';
-        echo '<h5 class="card-title">'.$row['blogTitle'].'</h5>';
-        echo '</div>';
-        echo '<div class="card-footer">
-                <form action="" method="POST" enctype="">
-                <input type="hidden" name="blogId" value="'.$row['blogId'].'">
-                <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop">View Content</button>
-                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">'.$row['blogTitle'].'</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body d-flex justify-content">
-                    '.$row['blogContent'].'
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
-                </div>
-                </div>
-                </div>
-                </form>
-                </div>';
-        echo '</div>';
-        echo '</div>';
-    }
+   foreach($result->fetchAll(PDO::FETCH_ASSOC) as $row)
+   {
+    $blogId = $row['blogId'];
+    $authName = $row['authName'];
+    $blogTitle = $row['blogTitle'];
+    $blogContent = $row['blogContent'];
+    $blogImg = $row['blogImg'];
+    $blogTime = $row['blogTime'];
+
+    echo <<<HTML
+        <div class="col-lg-3 col-md-6">
+        <div class="card h-100">
+            <img src="./admin/assets/images/{$blogImg}" class="img-thumbnail" alt="...">
+            <div class="card-body d-flex flex-column">
+            <h5 class="card-title">{$blogTitle}</h5>
+            <button type="button" class="btn btn-outline-primary btn-sm mt-auto" data-bs-toggle="modal" data-bs-target="#readme{$blogId}">
+                Read More
+            </button>
+            </div>
+        </div>
+        </div>
+        <div class="modal fade" id="readme{$blogId}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modellabel{$blogId}" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="modellabel{$blogId}">{$blogTitle}</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex justify-content">
+                {$blogContent}
+            </div>
+            <div class="modal-footer">
+                <span class="" value="">Posted on</span>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+            </div>
+        </div>
+        </div>
+        HTML;
+   }
     
 }
 else
