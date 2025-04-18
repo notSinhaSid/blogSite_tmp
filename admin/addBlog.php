@@ -18,7 +18,7 @@ include('./includes/navbar.inc.php');
 ?>
 <div class="container mt-5">
     <div class="row">
-        <div class="col-lg-8 offset-lg-2">
+        <div class="col-lg-6">
         <h3 class="text-center">Create new blog!</h3>
         <?php
         if($_SERVER['REQUEST_METHOD']=='POST' && isset($_POST['edit']))
@@ -33,6 +33,10 @@ include('./includes/navbar.inc.php');
         }
             require('./includes/blogForm.inc.php');
         ?>
+        </div>
+        <div class="col-lg-4 offset-lg-2">
+            <h3>Add new Category</h3>
+            <?php require('./includes/catForm.inc.php');?>
         </div>
     </div>
 </div>
