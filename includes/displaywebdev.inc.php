@@ -7,45 +7,17 @@ $result->execute();
 
 if($result->rowCount()>0)
 {
-    echo '<table class="table table-hover table-borderless">';
-    echo '<thead>';
-    echo '<tr class="align-middle">';
-    echo '<th>Blog Image</th>';
-    echo '<th>Author Name</th>';
-    echo '<th>Blog Title</th>';
-    echo '<th>View Blog Content</th>';
-    echo '<th>Posted on</th>';
-    echo '</tr>';
     foreach($result->fetchAll(PDO::FETCH_ASSOC) as $row)
     {
-        echo '<tr class="align-middle">';
-        // echo '<td>'.$row['blogId'].'</td>';
-        echo '<td><img src="./admin/assets/images/'.$row['blogImg'].'" style="height: 100px; width: 150px;"></td>';
-        echo '<td>'.$row['authName'].'</td>';
-        echo '<td class="text-uppercase">'.$row['blogTitle'].'</td>';
-        //this was for the content section of the blog
-        echo '<td><button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Read More</button>
-                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">'.$row['blogTitle'].'</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body d-flex justify-content">
-                    '.$row['blogContent'].'
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
-                </div>
-                </div>
-                </div></td>';
-        echo '<td>'.$row['blogTime'].'</td>';
-        echo '</tr>';
+        echo '<div class="card h-100" style="width: 18rem;">';
+        echo '<img src="./admin/assets/images/'.$row['blogImg'].'" class="card-img-top" alt="...">';
+        echo '<div class="card-body">';
+          echo '<h5 class="card-title">'.$row['blogTitle'].'</h5>';
+          echo  '<p class="card-text">Some quick example text to build on the card title and make up the bulk of the cards content.</p>';
+          echo '<form action="" method ="POST"><input type ="hidden" value="'.$row['blogId'].'" name="blogId"><a href="./public/webdev/webdev.'.$row['blogId'].'.php" class="btn btn-outline-info">Read More</a>';
+        echo '</div>';
+      echo '</div>';
     }
-    echo '</thead>';
-    echo '</table>';
 }
 else
 {

@@ -1,5 +1,4 @@
 <?php
-
 const DSN = "mysql:host=localhost; dbname=blogsite_db";
 const USER ="root";
 const PASSWORD ="";
