@@ -9,7 +9,7 @@ if($result->rowCount()>0)
 {
     foreach($result->fetchAll(PDO::FETCH_ASSOC) as $row)
     {
-        echo '<div class="card h-100" style="width: 18rem;">';
+        echo '<div class="card h-50" style="width: 18rem; margin-left: 20px;">';
         echo '<img src="./admin/assets/images/'.$row['blogImg'].'" class="card-img-top" alt="...">';
         echo '<div class="card-body">';
           echo '<h5 class="card-title">'.$row['blogTitle'].'</h5>';

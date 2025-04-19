@@ -6,7 +6,7 @@ include('./database/dbconnection.inc.php');
 include('./includes/header.inc.php');
 require('./includes/navbar.inc.php');
 ?>
-<div class="container">
+<div class="container-show">
     <div class="row">
     <?php
         require('./includes/displayandroid.inc.php');

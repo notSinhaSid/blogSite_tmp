@@ -21,7 +21,7 @@ if($result->rowCount()>0)
 
     echo <<<HTML
     <div class="col-lg-3 col-md-6">
-        <div class="card h-100">
+        <div class="card h-100 ">
             <img src="./admin/assets/images/{$blogImg}" class="img-thumbnail" alt="...">
             <div class="card-body d-flex flex-column">
                 <h5 class="card-title">{$blogTitle}</h5>
